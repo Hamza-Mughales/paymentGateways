@@ -1,12 +1,7 @@
 <?php
 
-use App\Settings\GeneralSettings;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
 
-Route::get('/', function (GeneralSettings $settings){
-    // return app(GeneralSettings::class)->site_name;
-    // dd($settings);
-    return [
-        'site_name' => $settings->site_name,
-    ];
-});
+Route::post('/payments/process', [PaymentController::class, 'processPayment']);
+
